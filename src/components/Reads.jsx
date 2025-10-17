@@ -1,10 +1,12 @@
 // http://localhost:8000/api/facts
-
+import Read from "./Read";
 import { useEffect, useState } from "react"
+import { Link } from "react-router";
 
 function Reads() {
 
     const [facts, setFacts] = useState([]);
+    // const [selectFact, setSelectFact] = useState();
 
     async function getFacts() {
 
@@ -13,7 +15,9 @@ function Reads() {
         const res = await fetch("http://localhost:8000/api/facts");
         const data = await res.json();
 
-        setFacts(data);
+        setFacts(data["hydra:member"] || data.member || data || []);
+
+        // console.log(data);
         
       } catch (err) {
 
@@ -25,26 +29,35 @@ function Reads() {
 
     useEffect(() => {
       getFacts();
+      // console.log('selectFact =', selectFact);
     }, []);
+    
 
+  
   return (
     <>
-      <section>
+      <section className="reads-facts-section">
 
         <h2>Faits intéréssants sur l'informatique</h2>
         
-        <div>
+        <div className="facts-list">
 
-          {facts.map(fact => (
+          {facts && facts.length > 0 ? facts.map(fact => (
 
-            <div key={fact.id}>
+            <div key={fact.id} className="facts-cards">
               <p>{fact.fact}</p>
               <p>Techno : {fact.techno}</p>
+              {/* <button onClick={() => setSelectFact(fact)}>Voir</button> */}
+              <Link to={`/read/${fact.id}`}>Voir</Link>
             </div>
 
-          ))}
+          )) : (
+            <p>Aucun fait disponible pour le moment.</p>
+          )}
 
         </div>
+
+        {/* {selectFact && <Read fact={selectFact} />} */}
 
       </section>
     </>

@@ -1,15 +1,55 @@
+// http://localhost:8000/api/facts
+
+import {useEffect, useState } from "react";
+import {useParams} from "react-router"
+
+
+import Reads from "./Reads";
+
 
 function Read() {
 
-    
+
+  const factID = useParams().id;
+  
+  const [fact, setFact] = useState([]);
+
+  async function getFact(id) {
+
+    try{
+        const res = await fetch("http://localhost:8000/api/facts/"+id);
+        const data = await res.json();
+
+        setFact(data["hydra:member"] || data.member || data || []);
+        
+    } catch (err) {
+
+alert("Oh Oh !! il y a un probléme !");
+      
+ }
+   
+
+}
+
+useEffect(() => {
+      getFact(factID);
+    }, []);
+
+  // if (!fact) return null;
 
   return (
     <>
       <section>
-        <h2></h2>
+
+        <div>
+          
+          <h2>{fact.fact}</h2>
+          <p>Techno : {fact.techno}</p>
+
+        </div>
       </section>
     </>
   )
 }
 
-export default Read
+export default Read;
