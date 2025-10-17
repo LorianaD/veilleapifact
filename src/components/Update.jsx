@@ -1,13 +1,15 @@
 
-function Home() {
+function Update() {
+
+    
 
   return (
     <>
       <section>
-        <h2>Bonjour !</h2>
+        <h2></h2>
       </section>
     </>
   )
 }
 
-export default Home
+export default Update
