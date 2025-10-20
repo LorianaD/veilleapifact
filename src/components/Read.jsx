@@ -4,9 +4,6 @@ import {useEffect, useState } from "react";
 import {useParams} from "react-router"
 
 
-import Reads from "./Reads";
-
-
 function Read() {
 
 
@@ -17,23 +14,22 @@ function Read() {
   async function getFact(id) {
 
     try{
-        const res = await fetch("http://localhost:8000/api/facts/"+id);
-        const data = await res.json();
+      const res = await fetch("http://localhost:8000/api/facts/"+id);
+      const data = await res.json();
 
-        setFact(data["hydra:member"] || data.member || data || []);
+      setFact(data["hydra:member"] || data.member || data || []);
         
     } catch (err) {
 
-alert("Oh Oh !! il y a un probléme !");
+      alert("Oh Oh !! il y a un probléme !");
       
- }
+    }
    
+  }
 
-}
-
-useEffect(() => {
-      getFact(factID);
-    }, []);
+  useEffect(() => {
+    getFact(factID);
+  }, []);
 
   // if (!fact) return null;
 

@@ -9,9 +9,9 @@ function Nav() {
   return (
     <>
       <nav>
-        <Link to={Home}>Home</Link>
-        <Link to={Create}>Create</Link>
-        <Link to={Reads}>Facts</Link>
+        <Link to="/">Home</Link>
+        <Link to="/create">Create</Link>
+        <Link to="/reads">Facts</Link>
       </nav>
     </>
   )

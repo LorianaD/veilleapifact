@@ -18,8 +18,8 @@ function App() {
         <Route path='/reads' element={< Reads />}></Route>
         <Route path='/read/:id' element={< Read />}></Route>
         <Route path='/create' element={< Create />}></Route>
-        <Route path='/update' element={< Update />}></Route>
-        <Route path='/delete' element={< Delete />}></Route>
+        <Route path='/update/:id' element={< Update />}></Route>
+        <Route path='/delete/:id' element={< Delete />}></Route>
       </Routes>
     </>
   )
