@@ -47,7 +47,6 @@ function Reads() {
             <div key={fact.id} className="facts-cards">
               <p>{fact.fact}</p>
               <p>Techno : {fact.techno}</p>
-              {/* <button onClick={() => setSelectFact(fact)}>Voir</button> */}
               <Link to={`/read/${fact.id}`}>Voir</Link>
             </div>
 

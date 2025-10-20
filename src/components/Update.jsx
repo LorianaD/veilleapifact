@@ -34,7 +34,7 @@ function Update() {
       const res = fetch("http://localhost:8000/api/facts/" + id, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fact: fact, techno: techno })
+        body: JSON.stringify({ "fact": fact, "techno": techno })
       })
 
       const data = res.json();
@@ -44,7 +44,7 @@ function Update() {
     }catch {
 
       alert("Un probléme est arrivé");
-      
+
     }
 
   } 
@@ -54,7 +54,7 @@ function Update() {
       <section>
         <form action="" method="PATCH">
           <label htmlFor="fact">Modifier le Fait intéresant</label>
-          <textarea name="fact" value={fact.fact}></textarea>
+          <textarea name="fact" value={fact}></textarea>
           <label htmlFor="techno">Modifier la téchnologie</label>
           <select name="techno">
             <option value="JS">JavaScript</option>
