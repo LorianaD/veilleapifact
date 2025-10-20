@@ -1,7 +1,7 @@
 // http://localhost:8000/api/facts
 
 import {useEffect, useState } from "react";
-import {useParams} from "react-router"
+import {Link, useParams} from "react-router"
 
 
 function Read() {
@@ -41,8 +41,11 @@ function Read() {
           
           <h2>{fact.fact}</h2>
           <p>Techno : {fact.techno}</p>
+          <div><Link to="/update">Modifier</Link></div>
+          <div><Link to="/delete">Supprimer</Link></div>
 
         </div>
+        
       </section>
     </>
   )
