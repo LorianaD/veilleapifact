@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router'
 import './App.css'
-import Home from './components/home'
 import Header from './components/layaout/header'
 import Read from './components/Read'
 import Create from './components/Create'
@@ -14,8 +13,7 @@ function App() {
     <>
       < Header />
       <Routes>
-        <Route path="/" element={< Home />}></Route>
-        <Route path='/reads' element={< Reads />}></Route>
+        <Route path='/' element={< Reads />}></Route>
         <Route path='/read/:id' element={< Read />}></Route>
         <Route path='/create' element={< Create />}></Route>
         <Route path='/update/:id' element={< Update />}></Route>

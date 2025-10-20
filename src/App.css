@@ -37,3 +37,23 @@ header {
 body {
     background-image: url();
 }
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+}
+
+input {
+    width: 200px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(176, 176, 176, 0.4);
+}

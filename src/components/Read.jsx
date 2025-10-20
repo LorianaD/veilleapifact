@@ -41,11 +41,12 @@ function Read() {
           
           <h2>{fact.fact}</h2>
           <p>Techno : {fact.techno}</p>
-          <div><Link to="/update">Modifier</Link></div>
+
+          <div><Link to={`/update/${fact.id}`}>Modifier</Link></div>
           <div><Link to="/delete">Supprimer</Link></div>
 
         </div>
-        
+
       </section>
     </>
   )
